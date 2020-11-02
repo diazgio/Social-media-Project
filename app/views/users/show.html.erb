@@ -6,9 +6,30 @@
       <%= render @posts %>
     </ul>
     <h3>Friends</h3>
-    <% current_user.friends.each do |people| %>
-      <%= link_to people.name, user_path(people.id)  %>
-      <%= link_to 'Unfriend', reject_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete %>
-    <% end %>
+    <ul class='posts'>
+      <% current_user.friends.each do |people| %>
+        <%= link_to people.name, user_path(people.id)  %>
+        <%= not_a_friend %>
+      <% end %>
+    </ul>
+    <ul class='posts'>
+      <% if current_user.id == @user.id %>
+        <h3>Pending Requests</h3>
+        <% current_user.pending_friends.each do |people| %>
+          <p>
+            <%= link_to people.name, user_path(people.id) %>
+          </p>
+        <% end %>
+      <% end %>
+      
+    </ul>
+    <h3>Friend's Requests</h3>
+    <ul class='posts'>
+      <% current_user.friend_requests.each do |people| %>
+        <%= link_to people.name, user_path(people.id) %>
+        <%= link_to 'Accept Invitation', accept_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-success', method: :post%>
+        <%= link_to 'Reject Invitation', reject_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete%>
+      <% end %>
+    </ul>
   </article>
 </section>
