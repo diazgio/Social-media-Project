@@ -1,11 +1,11 @@
 module UserHelper
   # rubocop: disable Style/GuardClause, Layout/LineLength
-  def add_friend(user)
-    if current_user.id == user.id
+  def add_friend(user) 
+    if current_user.id == user.id || current_user.friend?(user)
       nil
     elsif pending_id(current_user).find { |x| x == user.id }
       link_to 'Cancel Invitation', reject_path(user_id: current_user.id, friend_id: user.id),
-              class: 'btn btn-danger col', method: :delete
+              class: 'btn btn-danger', method: :delete
     else
       link_to 'Add friend', user_friendships_path(user), method: :post, class: 'btn btn-success'
     end
@@ -17,13 +17,6 @@ module UserHelper
       @ids << people.id
     end
     @ids << current_user.id
-  end
-
-  def already_friends?
-    if 
-    else
-      add_friend
-    end
   end
 
   def not_a_friend
