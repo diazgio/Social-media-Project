@@ -19,9 +19,9 @@ module UserHelper
     @ids << current_user.id
   end
 
-  def not_a_friend
+  def not_a_friend(user_id)
     if current_user.id == @user.id
-      link_to 'Unfriend', reject_path(user_id: @user.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete
+      link_to 'Unfriend', reject_path(user_id: current_user.id, friend_id: user_id),  method: :delete, class: 'btn btn-danger'
     end
   end
   # rubocop: enable Style/GuardClause, Layout/LineLength

@@ -9,7 +9,7 @@
     <ul class='posts'>
       <% current_user.friends.each do |people| %>
         <%= link_to people.name, user_path(people.id)  %>
-        <%= not_a_friend %>
+        <%= not_a_friend(people.id) %>
       <% end %>
     </ul>
     <ul class='posts'>

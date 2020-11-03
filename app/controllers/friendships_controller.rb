@@ -17,7 +17,7 @@ class FriendshipsController < ApplicationController
   end
 
   def reject
-    @friendship = Friendship.find_by(friend_id: params[:friend_id], user_id: params[:user_id])
+    @friendship = Friendship.find_by(user_id: params[:friend_id], friend_id: params[:user_id])
     #@friendship = Friendship.find_by(friend_id: params[:user_id], user_id: params[:friend_id]) if @friendship.nil?
     @friendship.destroy
     redirect_to users_path, notice: 'Friendship was rejected'
@@ -26,7 +26,6 @@ class FriendshipsController < ApplicationController
   def destroy
     @friendship = Friendship.find_by(id: params[:id])
     @friendship.destroy
-
     redirect_to users_path, notice: 'Friend removed!'
   end
 end
