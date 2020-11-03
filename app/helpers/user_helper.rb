@@ -19,6 +19,13 @@ module UserHelper
     @ids << current_user.id
   end
 
+  def already_friends?
+    if 
+    else
+      add_friend
+    end
+  end
+
   def not_a_friend
     if current_user.id == @user.id
       link_to 'Unfriend', reject_path(user_id: @user.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete
