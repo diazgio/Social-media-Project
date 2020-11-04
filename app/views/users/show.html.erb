@@ -9,16 +9,9 @@
     <ul class='posts'>
       <%= your_friends(current_user) %>
     </ul>
+    <h3>Pending Requests</h3>
     <ul class='posts'>
-      <% if current_user.id == @user.id %>
-        <h3>Pending Requests</h3>
-        <% current_user.pending_friends.each do |people| %>
-          <p>
-            <%= link_to people.name, user_path(people.id) %>
-          </p>
-        <% end %>
-      <% end %>
-      
+      <%= pending_requests(current_user) %>
     </ul>
     <h3>Friend's Requests</h3>
     <ul class='posts'>

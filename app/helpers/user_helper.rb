@@ -40,5 +40,22 @@ module UserHelper
       end
     end
   end
+
+  def pending_requests(user)
+    if user.id == @user.id
+      return if user.friends.nil?
+      content_tag (:div) do
+        user.pending_friends.each do |people|
+          concat link_to (
+            content_tag (:li) do
+              content_tag (:p) do
+                link_to people.name, user_path(people.id)
+              end
+            end
+          )
+        end
+      end
+    end
+  end
   # rubocop: enable Style/GuardClause, Layout/LineLength
 end
