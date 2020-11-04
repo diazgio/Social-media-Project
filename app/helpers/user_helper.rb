@@ -1,6 +1,6 @@
 module UserHelper
-  # rubocop: disable Style/GuardClause, Layout/LineLength
-  def add_friend(user) 
+  # rubocop: disable Style/GuardClause, Layout/LineLength, Style/RedundantInterpolation
+  def add_friend(user)
     if current_user.id == user.id || current_user.friend?(user)
       nil
     elsif pending_id(current_user).find { |x| x == user.id }
@@ -21,12 +21,13 @@ module UserHelper
 
   def not_a_friend(user_id)
     if current_user.id == @user.id
-      link_to 'Unfriend', reject_path(user_id: current_user.id, friend_id: user_id),  method: :delete, class: 'btn btn-danger'
+      link_to 'Unfriend', reject_path(user_id: current_user.id, friend_id: user_id), method: :delete, class: 'btn btn-danger'
     end
   end
 
   def your_friends(user)
     return if user.friends.nil?
+
     content_tag (:div) do
       user.friends.each do |people|
         concat link_to (
@@ -44,11 +45,12 @@ module UserHelper
   def pending_requests(user)
     if user.id == @user.id
       return if user.friends.nil?
-      content_tag (:div) do
+
+      content_tag :div do
         user.pending_friends.each do |people|
           concat link_to (
-            content_tag (:li) do
-              content_tag (:p) do
+            content_tag :li do
+              content_tag :p do
                 link_to people.name, user_path(people.id)
               end
             end
@@ -60,13 +62,13 @@ module UserHelper
 
   def friendships_requests(user)
     return if user.friends.nil?
-    content_tag (:div) do
+    content_tag :div do
       user.friend_requests.each do |people|
         concat link_to (
-          content_tag (:li) do
-            content_tag (:p) do
-              ("#{link_to people.name, user_path(people.id), class: 'mx-2'}" + 
-                "#{link_to 'Accept Invitation', accept_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-success mx-2', method: :post}" + 
+          content_tag :li do
+            content_tag :p do
+              ("#{link_to people.name, user_path(people.id), class: 'mx-2'}" <<
+                "#{link_to 'Accept Invitation', accept_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-success mx-2', method: :post}" <<
                 "#{link_to 'Reject Invitation', reject_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-danger mx-2', method: :delete}").html_safe
             end
           end
@@ -74,5 +76,5 @@ module UserHelper
       end
     end
   end
-  # rubocop: enable Style/GuardClause, Layout/LineLength
+  # rubocop: enable Style/GuardClause, Layout/LineLength, Style/RedundantInterpolation
 end
