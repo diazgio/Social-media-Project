@@ -57,5 +57,22 @@ module UserHelper
       end
     end
   end
+
+  def friendships_requests(user)
+    return if user.friends.nil?
+    content_tag (:div) do
+      user.friend_requests.each do |people|
+        concat link_to (
+          content_tag (:li) do
+            content_tag (:p) do
+              ("#{link_to people.name, user_path(people.id), class: 'mx-2'}" + 
+                "#{link_to 'Accept Invitation', accept_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-success mx-2', method: :post}" + 
+                "#{link_to 'Reject Invitation', reject_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-danger mx-2', method: :delete}").html_safe
+            end
+          end
+        )
+      end
+    end
+  end
   # rubocop: enable Style/GuardClause, Layout/LineLength
 end

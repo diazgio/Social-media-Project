@@ -15,11 +15,7 @@
     </ul>
     <h3>Friend's Requests</h3>
     <ul class='posts'>
-      <% current_user.friend_requests.each do |people| %>
-        <%= link_to people.name, user_path(people.id) %>
-        <%= link_to 'Accept Invitation', accept_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-success', method: :post%>
-        <%= link_to 'Reject Invitation', reject_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-danger', method: :delete%>
-      <% end %>
+      <%= friendships_requests(current_user) %>
     </ul>
   </article>
 </section>
