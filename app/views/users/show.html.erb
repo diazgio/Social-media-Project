@@ -7,10 +7,7 @@
     </ul>
     <h3>Friends</h3>
     <ul class='posts'>
-      <% current_user.friends.each do |people| %>
-        <%= link_to people.name, user_path(people.id)  %>
-        <%= not_a_friend(people.id) %>
-      <% end %>
+      <%= your_friends(current_user) %>
     </ul>
     <ul class='posts'>
       <% if current_user.id == @user.id %>
