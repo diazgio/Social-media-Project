@@ -1,11 +1,17 @@
 module UserHelper
   # rubocop: disable Style/GuardClause, Layout/LineLength, Style/RedundantParentheses, Lint/ParenthesesAsGroupedExpression
   def add_friend(user)
+    current_user.friend_requests.each do |people|
+      @friendsi =  people.id
+    end
     if current_user.id == user.id || current_user.friend?(user)
       nil
     elsif pending_id(current_user).find { |x| x == user.id }
       link_to 'Cancel Invitation', reject_path(user_id: current_user.id, friend_id: user.id),
-              class: 'btn btn-danger', method: :delete
+      class: 'btn btn-danger', method: :delete
+    elsif @friendsi == user.id
+      ("#{link_to 'Accept Invitation', accept_path(user_id: user.id, friend_id: current_user.id), class: 'btn btn-success mx-2', method: :post}" \
+        "#{link_to 'Reject Invitation', reject_path(user_id: user.id, friend_id: current_user.id), class: 'btn btn-danger mx-2', method: :delete}").html_safe
     else
       link_to 'Add friend', user_friendships_path(user), method: :post, class: 'btn btn-success'
     end
