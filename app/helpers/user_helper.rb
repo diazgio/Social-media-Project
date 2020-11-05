@@ -62,7 +62,6 @@ module UserHelper
 
   def friendships_requests(user)
     return if user.friends.nil?
-    
     content_tag :div do
       user.friend_requests.each do |people|
         concat link_to (
