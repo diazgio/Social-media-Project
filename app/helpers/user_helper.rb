@@ -1,5 +1,5 @@
 module UserHelper
-  # rubocop: disable Style/GuardClause, Layout/LineLength, Style/RedundantInterpolation, Lint/ParenthesesAsGroupedExpression
+  # rubocop: disable Style/GuardClause, Layout/LineLength, Style/RedundantParentheses, Lint/ParenthesesAsGroupedExpression
   def add_friend(user)
     if current_user.id == user.id || current_user.friend?(user)
       nil
@@ -77,5 +77,5 @@ module UserHelper
       end
     end
   end
-  # rubocop: enable Style/GuardClause, Layout/LineLength, Style/RedundantInterpolation, Lint/ParenthesesAsGroupedExpression
+  # rubocop: enable Style/GuardClause, Layout/LineLength, Style/RedundantParentheses, Lint/ParenthesesAsGroupedExpression
 end
