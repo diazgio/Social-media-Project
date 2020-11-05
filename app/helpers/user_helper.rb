@@ -1,5 +1,5 @@
 module UserHelper
-  # rubocop: disable Style/GuardClause, Layout/LineLength, Style/RedundantInterpolation
+  # rubocop: disable Style/GuardClause, Layout/LineLength, Style/RedundantInterpolation, Lint/ParenthesesAsGroupedExpression
   def add_friend(user)
     if current_user.id == user.id || current_user.friend?(user)
       nil
@@ -28,12 +28,12 @@ module UserHelper
   def your_friends(user)
     return if user.friends.nil?
 
-    content_tag (:div) do
+    content_tag :div do
       user.friends.each do |people|
         concat link_to (
-          content_tag (:li) do
-            content_tag (:p) do
-              ("#{link_to people.name, user_path(people.id), class: 'mx-2'}" +
+          content_tag :li do
+            content_tag :p do
+              ("#{link_to people.name, user_path(people.id), class: 'mx-2'}" \
               "#{not_a_friend(people.id)}").html_safe
             end
           end
@@ -62,13 +62,14 @@ module UserHelper
 
   def friendships_requests(user)
     return if user.friends.nil?
+    
     content_tag :div do
       user.friend_requests.each do |people|
         concat link_to (
           content_tag :li do
             content_tag :p do
-              ("#{link_to people.name, user_path(people.id), class: 'mx-2'}" <<
-                "#{link_to 'Accept Invitation', accept_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-success mx-2', method: :post}" <<
+              ("#{link_to people.name, user_path(people.id), class: 'mx-2'}" \
+                "#{link_to 'Accept Invitation', accept_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-success mx-2', method: :post}" \
                 "#{link_to 'Reject Invitation', reject_path(user_id: people.id, friend_id: current_user.id), class: 'btn btn-danger mx-2', method: :delete}").html_safe
             end
           end
@@ -76,5 +77,5 @@ module UserHelper
       end
     end
   end
-  # rubocop: enable Style/GuardClause, Layout/LineLength, Style/RedundantInterpolation
+  # rubocop: enable Style/GuardClause, Layout/LineLength, Style/RedundantInterpolation, Lint/ParenthesesAsGroupedExpression
 end
