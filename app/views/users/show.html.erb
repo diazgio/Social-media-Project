@@ -5,5 +5,17 @@
     <ul class="posts">
       <%= render @posts %>
     </ul>
+    <h3>Friends</h3>
+    <ul class='posts'>
+      <%= your_friends(current_user) %>
+    </ul>
+    <h3>Pending Requests</h3>
+    <ul class='posts'>
+      <%= pending_requests(current_user) %>
+    </ul>
+    <h3>Friend's Requests</h3>
+    <ul class='posts'>
+      <%= friendships_requests(current_user) %>
+    </ul>
   </article>
 </section>
