@@ -7,7 +7,8 @@ RSpec.describe 'Users' do
     @user3 = User.create(name: 'mike', email: 'test3@test.com', password: 123_456, id: 3)
     @user1.friendships.create(user_id: 1, friend_id: 2, confirmed: true)
     @user3.friendships.create(user_id: 2, friend_id: 1, confirmed: true)
-  end_
+  end
+  
   feature 'User can' do
     scenario 'user can login and logout' do
       visit '/users/sign_in'
