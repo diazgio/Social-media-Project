@@ -1,5 +1,5 @@
 module UserHelper
-  # rubocop: disable Style/GuardClause, Layout/LineLength, Style/RedundantParentheses, Lint/ParenthesesAsGroupedExpression
+  # rubocop: disable Style/GuardClause, Layout/LineLength, Style/RedundantParentheses, Lint/ParenthesesAsGroupedExpression, Style/RedundantInterpolation
   def add_friend(user)
     current_user.friend_requests.each do |people|
       @friendsi = people.id
@@ -87,9 +87,9 @@ module UserHelper
     if @mutual_friends.empty?
       content_tag :p, 'You dont have mutual friends at the moment.'
     else
-      ("#{content_tag :h3, 'Mutual Friends'}" <<
-        "#{render @mutual_friends}").html_safe  
+      ("#{content_tag :h3, 'Mutual Friends'}" \
+        "#{render @mutual_friends}").html_safe
     end
   end
-  # rubocop: enable Style/GuardClause, Layout/LineLength, Style/RedundantParentheses, Lint/ParenthesesAsGroupedExpression
+  # rubocop: enable Style/GuardClause, Layout/LineLength, Style/RedundantParentheses, Lint/ParenthesesAsGroupedExpression, Style/RedundantInterpolation
 end

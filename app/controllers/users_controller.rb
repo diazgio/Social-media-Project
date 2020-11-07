@@ -20,7 +20,7 @@ class UsersController < ApplicationController
         @ids << x.id
       end
     end
-    @ids.reject { |x| x == current_user.id}
+    @ids.reject { |x| x == current_user.id }
   end
 
   def show_three_friends
