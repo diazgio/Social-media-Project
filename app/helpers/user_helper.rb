@@ -82,5 +82,14 @@ module UserHelper
       end
     end
   end
+
+  def find_mutual_friends
+    if @mutual_friends.empty?
+      content_tag :p, 'You dont have mutual friends at the moment.'
+    else
+      ("#{content_tag :h3, 'Mutual Friends'}" <<
+        "#{render @mutual_friends}").html_safe  
+    end
+  end
   # rubocop: enable Style/GuardClause, Layout/LineLength, Style/RedundantParentheses, Lint/ParenthesesAsGroupedExpression
 end

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def show_mutual_friends
     @ids = []
-    current_user.friends.each do |peolpe|
+    current_user.friends.each do |people|
       people.friends.each do |x|
         @ids << x.id
       end
