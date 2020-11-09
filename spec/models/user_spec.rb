@@ -1,4 +1,5 @@
 require 'rails_helper'
+require './app/models/user.rb'
 
 RSpec.describe User, type: :model do
   let(:user) { User.new(id: 1) }
