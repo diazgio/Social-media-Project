@@ -28,6 +28,7 @@ gem 'hirb'
 gem 'jquery-rails'
 gem 'rubocop', '~>0.81.0'
 gem 'simple_form'
+gem 'uglifier'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
