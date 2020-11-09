@@ -4,6 +4,7 @@ module UserHelper
     current_user.friend_requests.each do |people|
       @friendsi = people.id
     end
+
     if current_user.id == user.id || current_user.friend?(user)
       nil
     elsif pending_id(current_user).find { |x| x == user.id }
