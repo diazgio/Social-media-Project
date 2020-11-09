@@ -1,77 +1,75 @@
-# Scaffold for social media app with Ruby on Rails
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+# 🧐 Social Media!!Social Media project
 
-## Built With
+## Concept
 
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
+> Build a basic posts app with rails to learn the basic concepts of users creating posts, adding coments and likes, also to send friendship requests, accept them and reject them. It consist of making an associations web app, log in, log out, and alse they can create, and destory friendhsips.
 
-## Live Demo
+> View with your user sign in
 
-TBA
+![screenshot](./app/assets/images/testshot.png)
+
+## 🛠 Built With
+
+- Ruby on Rails
+- Postgresql
+- Linters
 
 
-## Getting Started
+## 🔧 Getting Started
 
-To get a local copy up and running follow these simple example steps.
+> To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+- Go to the main page of the repo.
+- Press the "Code" button and get the repo link.
+- Clone it using git clone.
 
-Ruby: 2.6.3
-Rails: 5.2.3
-Postgres: >=9.5
+### 📝 Prerequisites
 
-### Setup
+- Ruby -v2.7.0p0
+- Rails -v6.0.3.3
 
-Instal gems with:
+### 📝 Setup
 
-```
-bundle install
-```
+ - Open a terminal
+ - Copy this code : 
+        ```
+        git clone "put the link from github repo"
+        ```
+ - Run the program with this code :
+        ```
+        bundle install
+        ```       
+- Run the program with this code :
+        ```
+        rails db:create
+        rails db:migrate
+        ```
+- now you can run ```rails server```
+- Stop the program with: "Ctrl + C" (Windows or Linux) or "Command + C"(Apple)
 
-Setup database with:
+### 📝 How to interact with the app?
 
-```
-   rails db:create
-   rails db:migrate
-```
+- When the program is running go to your browser
 
-### Github Actions
+- put: localhost:3000/
 
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
+- Click on login, register and create a new article
 
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
-
+- Enjoy the app.
 
 ### Usage
 
-Start server with:
+- Personal Project - Create a basic social media app just with learning purpose
 
-```
-    rails server
-```
+## 👤 Authors
 
-Open `http://localhost:3000/` in your browser.
+👤 **Giordano Díaz**
 
-### Run tests
-
-```
-    rpsec --format documentation
-```
-
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
-
-### Deployment
-
-TBA
-
-## Authors
-
-TBA
+- Github: [@diazgio](https://github.com/diazgio)
+- Twitter: [@giordano_diaz](https://twitter.com/giordano_diaz)
+- LinkenIn:[LinkenIn](www.linkedin.com/in/Giordano-Diaz)
 
 ## 🤝 Contributing
 
@@ -85,9 +83,10 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
 
 ## 📝 License
 
-TBA
-
+This project is [MIT](LICENSE) licensed.
