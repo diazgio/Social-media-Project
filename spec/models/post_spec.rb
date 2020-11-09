@@ -1,4 +1,5 @@
 require 'rails_helper'
+require './app/models/post.rb'
 
 RSpec.describe Post, type: :model do
   describe 'associations' do
