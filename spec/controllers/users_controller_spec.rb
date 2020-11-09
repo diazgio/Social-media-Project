@@ -27,7 +27,7 @@ RSpec.describe UsersController, type: :feature do
     let(:user) { User.create(id: '1', name: 'adam', email: 'adam@test.com', password: '123456') }
 
     before :each do
-      user2 = User.create(id: '2', name: 'Pablo', email: 'pablo@test', password: '123456')
+      User.create(id: '2', name: 'Pablo', email: 'pablo@test.com', password: '123456')
       visit new_user_session_path
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
@@ -50,7 +50,7 @@ RSpec.describe UsersController, type: :feature do
     let(:user) { User.create(id: '1', name: 'adam', email: 'adam@test.com', password: '123456') }
 
     before :each do
-      user2 = User.create(id: '2', name: 'Pablo', email: 'pablo@test', password: '123456')
+      user2 = User.create(id: '2', name: 'Pablo', email: 'pablo@test.com', password: '123456')
       visit new_user_session_path
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
@@ -71,7 +71,7 @@ RSpec.describe UsersController, type: :feature do
     end
 
     scenario 'Reject friend request' do
-      click_on'Reject Invitation'
+      click_on 'Reject Invitation'
       expect(page).to have_content('Friendship was rejected')
     end
   end
@@ -80,7 +80,7 @@ RSpec.describe UsersController, type: :feature do
     let(:user) { User.create(id: '1', name: 'adam', email: 'adam@test.com', password: '123456') }
 
     before :each do
-      user2 = User.create(id: '2', name: 'Pablo', email: 'pablo@test', password: '123456')
+      user2 = User.create(id: '2', name: 'Pablo', email: 'pablo@test.com', password: '123456')
       visit new_user_session_path
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password

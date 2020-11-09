@@ -5,7 +5,7 @@ RSpec.describe Comment, type: :model do
   let(:user) { User.new }
   let(:post) { Post.new }
   let(:comment) { Comment.create }
-  
+
   describe 'associations' do
     it { should belong_to(:user) }
     it { should belong_to(:post) }
